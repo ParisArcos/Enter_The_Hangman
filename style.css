@@ -1,0 +1,33 @@
+#main {
+  width: 100vh;
+}
+.flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: stretch;
+  align-content: stretch;
+}
+.mainScreen {
+  display: flex;
+  flex-direction: row;
+  width: 75vh;
+  align-items: flex-start;
+}
+.scoreScreen {
+  width: 25vh;
+  padding: 2.5%;
+  font-family: "Courier New", monospace;
+  color: white;
+  background-color: black;
+}
+
+.mainImg {
+  width: 100%;
+  padding: 2.5%;
+  background-color: black;
+}
+.img {
+  width: 100%;
+}
