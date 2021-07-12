@@ -2,5 +2,3 @@
 // Kike - Oooooh!
 //Paris Arcos
 //Alberto
-
-console.log("funciono");
