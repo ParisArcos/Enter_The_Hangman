@@ -1,3 +1,4 @@
-//Paris Arcos
 // Salva - Hangman
-/* Alberto */
+// Kike - Oooooh!
+//Paris Arcos
+//Alberto
