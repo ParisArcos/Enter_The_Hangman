@@ -4,7 +4,8 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Enter the Hangman</title>
@@ -13,9 +14,9 @@
 
     <!-- Style tags -->
     <link rel="stylesheet" href="style.css" />
-  </head>
+</head>
 
-  <body>
+<body>
     <!--[if lt IE 7]>
       <p class="browsehappy">
         You are using an <strong>outdated</strong> browser. Please
@@ -23,24 +24,30 @@
       </p>
     <![endif]-->
     <header>
-      <nav>logo</nav>
+        <nav>logo</nav>
     </header>
     <div id="main">
-      <!--Contenedor principal-->
-      <div class="flex">
-        <div id="mainScreen" class="mainContent">
-          <!--Contenedor izquierdo-->
+        <!--Contenedor principal-->
+        <div class="flex">
+            <div id="mainScreen" class="mainContent">
+                <!--Contenedor izquierdo-->
+                <!-- Form Username -->
+                <div id="formUsername">
+                    <h1>Choose a username</h1>
+                    <label>Username</label>
+                    <input type="text">
+                    <input type="submit" value="Start">
+                </div>
+                <div id="scoreScreen" class="ranking"></div>
+            </div>
         </div>
 
-        <div id="scoreScreen" class="ranking"></div>
-      </div>
-    </div>
+        <footer>
+            <p><strong>Enter the Hangman</strong></p>
+        </footer>
+        <script></script>
+        <!-- Script tags -->
+        <script src="main.js"></script>
+</body>
 
-    <footer>
-      <p><strong>Enter the Hangman</strong></p>
-    </footer>
-    <script></script>
-    <!-- Script tags -->
-    <script src="main.js"></script>
-  </body>
 </html>
