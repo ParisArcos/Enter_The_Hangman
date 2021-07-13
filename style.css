@@ -1,8 +1,8 @@
 main {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  align-content: center;
+  align-items: stretch;
+  align-content: stretch;
 }
 .flex {
   display: flex;
@@ -15,12 +15,10 @@ main {
 .mainScreen {
   display: flex;
   flex-direction: row;
-  width: 75vh;
+  width: 100vh;
   align-items: flex-start;
 }
 .scoreScreen {
-  width: 25vh;
-  padding: 2.5%;
   font-family: "Courier New", monospace;
   color: white;
   background-color: black;
@@ -32,7 +30,8 @@ main {
   background-color: black;
 }
 .img {
-  width: 100%;
+  align-items: center;
+  width: 70%;
 }
 .playButton {
 }
