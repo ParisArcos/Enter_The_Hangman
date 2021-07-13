@@ -18,7 +18,7 @@ let player3 = {
 };
 let player4 = {
   name: "Kike",
-  timeScore: 32,
+  timeScore: 1,
 };
 
 let username = "Manu";
@@ -42,14 +42,15 @@ winners.push(player5);
 
 // ----------- TO PAINT THE CURRENT PLAYER & RANKING-------------
 
-winners.sort(GetSortOrder("timeScore"));
 showScore();
 
 function showScore() {
   let scoreScreen = document.getElementById("scoreScreen");
   let playerInfo = Object.keys(player);
 
-  for (let i = 0; i < winners.length; i++) {
+  winners.sort(GetSortOrder("timeScore"));
+
+  for (let i = 0; i < 5; i++) {
     for (let index = 0; index < playerInfo.length; index++) {
       let detail = playerInfo[index];
       // console.log(winners[i][detail]);
@@ -61,11 +62,11 @@ function showScore() {
 }
 
 // ------- DISPLAY PLAYERS IN ORDER BY SCORE -----------
+//* THIS FUNCTION COMPARES PLAYERS BY PROPERTY (LINE 51)
 
 function GetSortOrder(prop) {
   return function (a, b) {
     if (a[prop] > b[prop]) {
-      // THIS FUNCTION COMPARES PLAYERS BY PROPERTY LINE 45
       return 1;
     } else if (a[prop] < b[prop]) {
       return -1;
