@@ -22,7 +22,7 @@ function storeLetters(letters) {
     underlined.setAttribute("class", "underlined");
     letterContainer.appendChild(underlined);
     let charContainer = document.createElement("div");
-    //charContainer.setAttribute("hidden", "");
+    charContainer.setAttribute("hidden", "");
     charContainer.setAttribute("class", "hiddenChar");
     charContainer.innerHTML = char;
     underlined.appendChild(charContainer);

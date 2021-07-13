@@ -43,6 +43,7 @@ main {
 
 #letterContainer {
   display: flex;
+  text-align: center;
 }
 
 #keyboard {
