@@ -1,8 +1,116 @@
-document.getElementById("playButton").addEventListener("click", beginGame);
+playBtn = document.getElementById("playButton");
+playBtn.addEventListener("click", beginGame);
+var imageContainer = document.getElementById("mainImg");
 var image = document.getElementById("img");
 
+var speakers = [
+  {
+    name: "elaine",
+    color: "#d11d96",
+    top: "25vw",
+    left: "5vh",
+  },
+  {
+    name: "guybrush",
+    color: "#fff",
+    top: "80vw",
+    left: "5vh",
+  },
+];
+
 function beginGame() {
-  playIntro();
+  setTimeout(playIntro, 1000, image.classList.add("dark"));
 }
 
-function playIntro() {}
+function playIntro() {
+  playBtn.style.display = "none";
+  waiting();
+  const introConver = [
+    "Por fin, mi querido Guybrush, se deja caer!!",
+    "... Podria ayudarme, señorita?",
+    "no me recuerdas verdad?",
+    "Porsupuesto que si, esto ... no tendras una cuerda verdad?",
+    "A si? soy rubia o morena?",
+    "eso es una prgunta muy personal...",
+  ];
+  conversation(introConver);
+}
+
+function waiting() {
+  image.src = "src/img/waiting.gif";
+  image.style.width = "100%";
+  image.classList.remove("dark");
+  if (imageContainer.children[1]) {
+    imageContainer.removeChild(imageContainer.children[1]);
+  }
+}
+
+function guybrushSpeaking(msj) {
+  changeImg("src/img/speaking.gif");
+  speak(msj, "guybrush");
+  setTimeout(function () {
+    waiting();
+  }, 3000);
+}
+
+function elaineSpeaking(msj) {
+  changeImg("src/img/waiting.gif");
+  speak(msj, "elaine");
+  setTimeout(function () {
+    waiting();
+  }, 3000);
+}
+
+function conversation(conversation) {
+  for (let i = 0; i < conversation.length; i++) {
+    setTimeout(function () {
+      i % 2 == 0
+        ? elaineSpeaking(conversation[i])
+        : guybrushSpeaking(conversation[i]);
+    }, 2000 + 4650 * i);
+  }
+}
+
+function changeImg(url) {
+  image.src = url;
+  image.style.width = "100%";
+  image.classList.remove("dark");
+}
+
+function speak(msj, speakerName) {
+  for (const speaker of speakers) {
+    if (speaker.name == speakerName) {
+      var text = document.createElement("Div");
+      text.classList.add("speaker");
+      text.innerHTML = msj;
+      text.style.color = speaker.color;
+      text.style.top = speaker.top;
+      text.style.left = speaker.left;
+      imageContainer.appendChild(text);
+    }
+  }
+}
+
+/* function playIntro() {
+  image.src = "src/img/play.gif";
+  image.style.width = "100%";
+  image.classList.remove("dark");
+  playBtn.style.display = "none";
+  setTimeout(playGame, 23000);
+}
+
+function playGame() {
+  setTimeout(
+    function () {
+      image.src = "src/img/waiting.gif";
+      image.style.width = "100%";
+      image.classList.remove("dark");
+    },
+    1000,
+    image.classList.add("dark")
+  );
+  var text = document.createElement("Div");
+  text.classList.add("speaker");
+  text.innerHTML = "Whatever";
+  imageContainer.appendChild(text);
+} */
