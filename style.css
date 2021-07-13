@@ -31,3 +31,17 @@
 .img {
   width: 100%;
 }
+
+.underlined {
+  border-bottom: solid;
+  width: 20px;
+  margin: 2px;
+}
+
+#letterContainer {
+  display: flex;
+}
+
+#keyboard {
+  display: flex;
+}
