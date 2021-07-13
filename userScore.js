@@ -42,6 +42,7 @@ winners.push(player5);
 
 // ----------- TO PAINT THE CURRENT PLAYER & RANKING-------------
 
+winners.sort(GetSortOrder("timeScore"));
 showScore();
 
 function showScore() {
@@ -57,4 +58,18 @@ function showScore() {
       scoreScreen.appendChild(score);
     }
   }
+}
+
+// ------- DISPLAY PLAYERS IN ORDER BY SCORE -----------
+
+function GetSortOrder(prop) {
+  return function (a, b) {
+    if (a[prop] > b[prop]) {
+      // THIS FUNCTION COMPARES PLAYERS BY PROPERTY LINE 45
+      return 1;
+    } else if (a[prop] < b[prop]) {
+      return -1;
+    }
+    return 0;
+  };
 }
