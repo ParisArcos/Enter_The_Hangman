@@ -35,6 +35,7 @@ main {
 .scoreScreen {
   color: white;
   background-color: black;
+  padding: 2.5%;
 }
 
 .mainImg {
@@ -67,3 +68,25 @@ main {
   cursor: pointer;
   text-align: center;
 }
+.underlined {
+  border-bottom: solid;
+  width: 20px;
+  margin: 2px;
+}
+.keyboardLetterContainer {
+  width: 30px;
+}
+
+#letterContainer {
+  display: flex;
+  text-align: center;
+}
+
+#keyboardTop {
+  display: flex;
+}
+#keyboardMid {
+  display: flex;
+}
+#keyboardBottom {
+  display: flex;
