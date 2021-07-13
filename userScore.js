@@ -18,15 +18,17 @@ let player3 = {
 };
 let player4 = {
   name: "Kike",
-  timeScore: 32,
+  timeScore: 1,
 };
+
+let username = "Manu";
 
 // ----------- TO FIND THE WINNER ----------
 
 let scores = [];
-let players = [player1, player2, player3, player4];
-for (let index = 0; index < players.length; index++) {
-  scores.push(players[index].timeScore);
+let winners = [player1, player2, player3, player4];
+for (let index = 0; index < winners.length; index++) {
+  scores.push(winners[index].timeScore);
 }
 
 let scoreNumbers = Math.min(...scores);
@@ -34,40 +36,41 @@ let scoreNumbers = Math.min(...scores);
 // ------- PA METERLO EN EL ARRAY ------
 
 let player5 = new Object();
-player5.name = username.value;
-player5.timeScore = 200;
-players.push(player5);
-console.log(players);
+player5.name = username;
+player5.timeScore = 0;
+winners.push(player5);
 
 // ----------- TO PAINT THE CURRENT PLAYER & RANKING-------------
 
-let currentPlayer = document.querySelector("#currentPlayer");
-currentPlayer.innerHTML = player5.name;
+showScore();
 
-let winner1 = document.querySelector("#winner1");
-winner1.innerHTML = player1.name;
-let winner2 = document.querySelector("#winner2");
-winner2.innerHTML = player2.name;
-let winner3 = document.querySelector("#winner3");
-winner3.innerHTML = player3.name;
-let winner4 = document.querySelector("#winner4");
-winner4.innerHTML = player4.name;
+function showScore() {
+  let scoreScreen = document.getElementById("scoreScreen");
+  let playerInfo = Object.keys(player);
 
-// ------------- TO PAINT THE TIME SCORES ------------
+  winners.sort(GetSortOrder("timeScore"));
 
-let first = document.getElementById("firstScore");
-first.innerHTML = 8 + " seconds.";
+  for (let i = 0; i < 5; i++) {
+    for (let index = 0; index < playerInfo.length; index++) {
+      let detail = playerInfo[index];
+      // console.log(winners[i][detail]);
+      let score = document.createElement("div");
+      score.innerHTML = winners[i][detail];
+      scoreScreen.appendChild(score);
+    }
+  }
+}
 
-let second = document.getElementById("secondScore");
-second.innerHTML = 13 + " seconds.";
+// ------- DISPLAY PLAYERS IN ORDER BY SCORE -----------
+//* THIS FUNCTION COMPARES PLAYERS BY PROPERTY (LINE 51)
 
-let third = document.getElementById("thirdScore");
-third.innerHTML = 25 + " seconds.";
-
-let fourth = document.getElementById("fourthScore");
-fourth.innerHTML = 38 + " seconds.";
-
-let current = document.getElementById("currentScore");
-current.innerHTML = "Currently Playing...";
-
-let nextPlayer = username.value;
+function GetSortOrder(prop) {
+  return function (a, b) {
+    if (a[prop] > b[prop]) {
+      return 1;
+    } else if (a[prop] < b[prop]) {
+      return -1;
+    }
+    return 0;
+  };
+}
