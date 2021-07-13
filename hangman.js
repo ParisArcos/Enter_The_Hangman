@@ -38,3 +38,5 @@ for (const key of keyboard) {
 function keyboardClick(event) {
   console.log(key);
 }
+
+export { wordDivide, storeLetters, keyboardClick };
