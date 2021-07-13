@@ -39,12 +39,21 @@ main {
   width: 20px;
   margin: 2px;
 }
+.keyboardLetterContainer {
+  width: 30px;
+}
 
 #letterContainer {
   display: flex;
   text-align: center;
 }
 
-#keyboard {
+#keyboardTop {
+  display: flex;
+}
+#keyboardMid {
+  display: flex;
+}
+#keyboardBottom {
   display: flex;
 }
