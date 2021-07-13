@@ -1,5 +1,8 @@
-#main {
-  width: 100vh;
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  align-content: stretch;
 }
 .flex {
   display: flex;
@@ -12,15 +15,14 @@
 .mainScreen {
   display: flex;
   flex-direction: row;
-  width: 75vh;
+  width: 100vh;
   align-items: flex-start;
 }
 .scoreScreen {
-  width: 25vh;
-  padding: 2.5%;
   font-family: "Courier New", monospace;
   color: white;
   background-color: black;
+  padding: 2.5%;
 }
 
 .mainImg {
@@ -29,5 +31,29 @@
   background-color: black;
 }
 .img {
-  width: 100%;
+  align-items: center;
+  width: 70%;
 }
+
+.underlined {
+  border-bottom: solid;
+  width: 20px;
+  margin: 2px;
+}
+.keyboardLetterContainer {
+  width: 30px;
+}
+
+#letterContainer {
+  display: flex;
+  text-align: center;
+}
+
+#keyboardTop {
+  display: flex;
+}
+#keyboardMid {
+  display: flex;
+}
+#keyboardBottom {
+  display: flex;

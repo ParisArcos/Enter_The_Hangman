@@ -1,4 +1,1 @@
-// Salva - Hangman
-// Kike - Oooooh!
-//Paris Arcos
-//Alberto
+import { hangman } from "hangman.js";
