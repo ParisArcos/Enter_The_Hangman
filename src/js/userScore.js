@@ -20,8 +20,9 @@ let player4 = {
   name: "Kike",
   timeScore: 1,
 };
+let scoreBoardTemplate = "";
 
-let username;
+let username = "Manu";
 
 // ----------- TO FIND THE WINNER ----------
 
@@ -89,3 +90,11 @@ function GetSortOrder(prop) {
 }
 
 // clearInterval(timeScoreboard);
+
+function scoreBoard() {
+  let scoreBoardTemplate = `<template><div id="scoreScreen" class="scoreScreen">
+  <h2>User Scores</h2>
+  <p id="timer" class="timer"></p>
+</div>
+</template>`;
+}
