@@ -7,9 +7,8 @@ console.log(letters);
 
 //EnterTheHangman
 function startHangman() {
-  let hangmanTemplate = `<div id="hangman">
+  let hangmanTemplate = `<template id=hangman-template><div id="hangman">
   <h1>Guess the word</h1>
-  <p>Muñequito</p>
   <div id="wordContainer">
     <div id="letterContainer"></div>
   </div>
@@ -99,15 +98,17 @@ function startHangman() {
     <div class="keyboardLetterContainer">
   </div>
 </div>
-</div>`;
+</div></template>`;
+  let contentHangmanArea = document.getElementById("contentArea");
+  contentHangmanArea.innerHTML = "";
+  contentHangmanArea.insertAdjacentHTML("beforeend", hangmanTemplate);
 
-  contentArea.innerHTML = "";
-  contentArea.insertAdjacentHTML("beforeend", hangmanTemplate);
-
-  let insertHangman = document.getElementById("hangman").content;
+  let insertHangman = document.getElementById("hangman-template").content;
   let copyHangman = document.importNode(insertHangman, true);
 
-  contentArea.appendChild(copyHangman);
+  contentHangmanArea.appendChild(copyHangman);
+  storeLetters(letters);
+  keyEvent();
 }
 
 //Divides the random word
@@ -134,7 +135,6 @@ function storeLetters(letters) {
     underlined.appendChild(charContainer);
   }
 }
-storeLetters(letters);
 //Put event listener in each letter
 
 let keyboard = document.getElementsByClassName("keyboardLetter");
@@ -144,19 +144,32 @@ function keyEvent() {
     key.addEventListener("click", keyboardClick);
   }
 }
-keyEvent();
 
 function keyboardClick(event) {
   let buttonKey = event.target.innerHTML;
   let hiddenChar = document.querySelectorAll(".hiddenChar");
+  let correct = false;
   for (let i = 0; i < hiddenChar.length; i++) {
     if (hiddenChar[i].innerHTML == buttonKey) {
       hiddenChar[i].removeAttribute("hidden", "");
       event.target.setAttribute("hidden", "");
-    } else if (
-      hiddenChar.length == document.getElementById("letterContainer")
-    ) {
-      console.log("You Won");
+      correct = true;
+    } else {
+      //correct = false;
     }
   }
+  correct != true ? lessLife() : "";
+}
+
+function lessLife() {
+  --lifes;
+  let failMsg = ["WHITE", "RED", "BLACK", "PURPLE", "GREY", "YELLOW", "BLUE"];
+  let randomFailMsg = failMsg[Math.floor(Math.random() * failMsg.length)];
+  guybrushSpeaking(randomFailMsg);
+  console.log(lifes);
+  lifes == 0 ? gameOver() : "";
+}
+
+function gameOver() {
+  console.log("GAME OVER");
 }
