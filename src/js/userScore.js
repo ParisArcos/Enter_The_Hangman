@@ -22,7 +22,7 @@ let player4 = {
 };
 let scoreBoardTemplate = "";
 
-let username = "Manu";
+// let username = "Manu";
 
 // ----------- TO FIND THE WINNER ----------
 
@@ -34,9 +34,9 @@ for (let index = 0; index < winners.length; index++) {
 
 let scoreNumbers = Math.min(...scores);
 
-let seconds = 1;
-let timeScoreboard;
-let timer = document.getElementById("timer");
+// let seconds = 0;
+// let timeScoreboard;
+// let timer = document.getElementById("timer");
 
 // ------- PA METERLO EN EL ARRAY ------
 
@@ -45,25 +45,25 @@ player5.name = username;
 player5.timeScore = seconds;
 winners.push(player5);
 
-function startTimer() {
-  timeScoreboard = setInterval(function () {
-    timer.textContent = "Time Playing: " + seconds;
-    seconds++;
-  }, 1000);
-}
+// function startTimer() {
+//   timeScoreboard = setInterval(function () {
+//     timer.textContent = "Time Playing: " + seconds;
+//     seconds++;
+//   }, 1000);
+// }
 
-startTimer();
+// startTimer();
 
 // ----------- TO PAINT THE CURRENT PLAYER & RANKING-------------
 
-showScore();
+// showScore();
 
 function showScore() {
   let scoreScreen = document.getElementById("scoreScreen");
   let playerInfo = Object.keys(player);
 
+  // document.getElementById("currentPlayer").innerHTML = username;
   winners.sort(GetSortOrder("timeScore"));
-
   for (let i = 0; i < 5; i++) {
     for (let index = 0; index < playerInfo.length; index++) {
       let detail = playerInfo[index];

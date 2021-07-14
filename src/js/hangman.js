@@ -98,7 +98,11 @@ function startHangman() {
     <div class="keyboardLetterContainer">
   </div>
 </div>
-</div></template>`;
+<div id="timerScreen" class="scoreScreen">
+      <h2>User Scores</h2>
+      <h3 id="currentPlayer"></h3>
+      <h4 id="timer" class="timer"></h4>
+    </div></template>`;
   let contentHangmanArea = document.getElementById("contentArea");
   contentHangmanArea.innerHTML = "";
   contentHangmanArea.insertAdjacentHTML("beforeend", hangmanTemplate);
