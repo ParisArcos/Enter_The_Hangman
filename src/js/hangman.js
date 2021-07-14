@@ -7,7 +7,7 @@ console.log(letters);
 
 //EnterTheHangman
 function startHangman() {
-  let hangmanTemplate = ` <div id="hangman">
+  let hangmanTemplate = `<div id="hangman">
   <h1>Guess the word</h1>
   <p>Muñequito</p>
   <div id="wordContainer">
