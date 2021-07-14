@@ -33,12 +33,25 @@ for (let index = 0; index < winners.length; index++) {
 
 let scoreNumbers = Math.min(...scores);
 
+let seconds = 1;
+let timeScoreboard;
+let timer = document.getElementById("timer");
+
 // ------- PA METERLO EN EL ARRAY ------
 
 let player5 = new Object();
 player5.name = username;
-player5.timeScore = 0;
+player5.timeScore = seconds;
 winners.push(player5);
+
+function startTimer() {
+  timeScoreboard = setInterval(function () {
+    timer.textContent = "Time Playing: " + seconds;
+    seconds++;
+  }, 1000);
+}
+
+startTimer();
 
 // ----------- TO PAINT THE CURRENT PLAYER & RANKING-------------
 
@@ -53,8 +66,7 @@ function showScore() {
   for (let i = 0; i < 5; i++) {
     for (let index = 0; index < playerInfo.length; index++) {
       let detail = playerInfo[index];
-      // console.log(winners[i][detail]);
-      let score = document.createElement(index % 2 == 0 ? "h3" : "h4"); // if corto!!!!
+      let score = document.createElement(index % 2 == 0 ? "h3" : "h4"); //* IF CORTO!!!!
       score.innerHTML = winners[i][detail];
       score.setAttribute("class", "ranking");
       scoreScreen.appendChild(score);
@@ -75,3 +87,5 @@ function GetSortOrder(prop) {
     return 0;
   };
 }
+
+// clearInterval(timeScoreboard);
