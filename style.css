@@ -46,10 +46,10 @@ main {
 .img {
   align-items: center;
   width: 65%;
-  transition: opacity 0.5s;
-  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.9s;
+  -webkit-transition: opacity 0.9s;
 }
-.img:hover {
+.img.dark {
   opacity: 0;
 }
 .playButton {
@@ -128,4 +128,13 @@ h4 {
 .timer {
   min-height: 3rem;
   height: 3rem;
+}
+
+.speaker {
+  position: absolute;
+  top: 95vw;
+}
+
+.contentArea {
+  display: none;
 }

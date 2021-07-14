@@ -21,7 +21,7 @@ let player4 = {
   timeScore: 1,
 };
 
-let username = "Manu";
+let username;
 
 // ----------- TO FIND THE WINNER ----------
 
