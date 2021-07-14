@@ -1,5 +1,6 @@
 playBtn = document.getElementById("playButton");
 playBtn.addEventListener("click", beginGame);
+contentArea = document.getElementById("contentArea");
 var imageContainer = document.getElementById("mainImg");
 var image = document.getElementById("img");
 
@@ -16,6 +17,12 @@ var speakers = [
     top: "80vw",
     left: "5vh",
   },
+  {
+    name: "lechuck",
+    color: "#2ec617",
+    top: "80vw",
+    left: "5vh",
+  },
 ];
 
 function beginGame() {
@@ -23,16 +30,18 @@ function beginGame() {
 }
 
 function playIntro() {
-  playBtn.style.display = "none";
-  waiting();
   const introConver = [
-    "Por fin, mi querido Guybrush, se deja caer!!",
-    "... Podria ayudarme, señorita?",
-    "no me recuerdas verdad?",
-    "Porsupuesto que si, esto ... no tendras una cuerda verdad?",
-    "A si? soy rubia o morena?",
-    "eso es una prgunta muy personal...",
+    "Por fin, mi querido Guybrush, se deja caer!!", //2
+    "... Podria ayudarme, señorita?", //7
+    "no me recuerdas verdad?", //12
+    "Porsupuesto que si, esto ... no tendras una cuerda verdad?", //17
+    "A si? soy rubia o morena?", //22
+    "eso es una prgunta muy personal...", //27
   ];
+
+  playBtn.style.display = "none";
+  contentArea.style.display = "flex";
+  waiting();
   conversation(introConver);
 }
 
@@ -56,6 +65,14 @@ function guybrushSpeaking(msj) {
 function elaineSpeaking(msj) {
   changeImg("src/img/waiting.gif");
   speak(msj, "elaine");
+  setTimeout(function () {
+    waiting();
+  }, 3000);
+}
+
+function lechuckSpeaking(msj) {
+  changeImg("src/img/fail.gif");
+  speak(msj, "lechuck");
   setTimeout(function () {
     waiting();
   }, 3000);

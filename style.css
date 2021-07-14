@@ -126,3 +126,7 @@ h4 {
   position: absolute;
   top: 95vw;
 }
+
+.contentArea {
+  display: none;
+}
