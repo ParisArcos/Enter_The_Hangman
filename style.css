@@ -118,8 +118,16 @@ main {
   font-weight: bold;
   font-size: 1em;
 }
+h3 {
+  margin-top: 2rem;
+}
 h4 {
-  margin-bottom: 35%;
+  margin-bottom: 6rem;
+}
+
+.timer {
+  min-height: 3rem;
+  height: 3rem;
 }
 
 .speaker {
