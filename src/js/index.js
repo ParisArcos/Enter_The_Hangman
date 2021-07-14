@@ -43,6 +43,7 @@ function playIntro() {
   contentArea.style.display = "flex";
   waiting();
   conversation(introConver);
+  addTemplateUserForm();
 }
 
 function waiting() {

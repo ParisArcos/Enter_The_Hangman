@@ -1,23 +1,35 @@
-//let $userForm = document.querySelector("#userForm");
-var username = document.querySelector("#username");
-let errorUsername = document.querySelector(".errorUsername");
-document
-  .querySelector("#submitFormUsername")
-  .addEventListener("click", verifyUsernameSubmit);
-username.addEventListener("keydown", verifyUsername);
+let $contentUserForm = document.querySelector("#contentArea");
+var username = "";
+let errorUsername = "";
 
-/*let templateUserForm = `<template id="templateUserForm">
-<h1>Choose a username</h1>
-<label>Username</label>
-<input type="text">
-<input type="submit" value="Start">
+var templateUserForm = `<template id="user-form-template">
+<div id="userForm">
+    <form action="">
+        <h3 class="title-username">Choose a username</h3>
+        <input class="display-block input-username" type="text" id="username" />
+        <div class="errorUsername">Username requires 4 to 20 characters</div>
+        <input type="submit" value="Start" id="submitFormUsername" class="display-block button-username playButton" />
+    </form>
+</div>
 </template>`;
 
 function addTemplateUserForm() {
-    console.log($userForm.content);
-    let clon = $userForm.content.cloneNode(true);
-    $userForm.append(clon);
-};*/
+  $contentUserForm.innerHTML = "";
+  $contentUserForm.insertAdjacentHTML("beforeend", templateUserForm);
+  let contentTemplate = document.querySelector("#user-form-template").content;
+  let copyTemplate = document.importNode(contentTemplate, true);
+
+  $contentUserForm.appendChild(copyTemplate);
+
+  document
+    .querySelector("#submitFormUsername")
+    .addEventListener("click", verifyUsernameSubmit);
+  username = document.querySelector("#username");
+  username.addEventListener("keydown", verifyUsername);
+  errorUsername = document.querySelector(".errorUsername");
+
+  $contentUserForm.insertAdjacentHTML("beforeend", templateUserForm);
+}
 
 function verifyUsername(e) {
   if (username.value.length <= 4 || username.value.length >= 20)
@@ -31,7 +43,7 @@ function verifyUsernameSubmit(e) {
     errorUsername.style.display = "block";
   } else {
     errorUsername.style.display = "none";
-    console.log(username.value);
+    startHangman();
     startTimer();
   }
 }
