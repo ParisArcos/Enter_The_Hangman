@@ -1,7 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
-@import "src\css\userForm.css";
-
 body,
 html {
   font-family: "Press Start 2P", sans-serif;
@@ -48,17 +46,13 @@ main {
 .img {
   align-items: center;
   width: 65%;
-  transition: opacity 0.5s;
-  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.9s;
+  -webkit-transition: opacity 0.9s;
 }
-.img:hover {
+.img.dark {
   opacity: 0;
 }
 .playButton {
-  display: flex;
-  align-items: stretch;
-  align-content: stretch;
-  justify-content: space-around;
   outline: blue solid 1px;
   font-family: "Press Start 2P", sans-serif;
   color: white;
@@ -67,6 +61,7 @@ main {
   font-size: 20px;
   cursor: pointer;
   text-align: center;
+  margin: auto;
 }
 .underlined {
   border-bottom: solid;
@@ -90,4 +85,48 @@ main {
 }
 #keyboardBottom {
   display: flex;
+}
+.errorUsername {
+  display: none;
+  color: white;
+  font-weight: bold;
+  background-color: rgb(223, 66, 66);
+  padding: 0.5em;
+  margin: 1em 0;
+  text-align: center;
+}
+
+.display-block {
+  display: block;
+}
+.title-username {
+  text-align: center;
+}
+.label-username {
+  text-align: center;
+}
+.input-username {
+  margin: 1em auto;
+  padding: 1em;
+  font-weight: bold;
+  font-size: 1em;
+}
+.button-username {
+  padding: 1em 6.5em;
+  display: block;
+  margin: 0 auto;
+  font-weight: bold;
+  font-size: 1em;
+}
+h4 {
+  margin-bottom: 35%;
+}
+
+.speaker {
+  position: absolute;
+  top: 95vw;
+}
+
+.contentArea {
+  display: none;
 }

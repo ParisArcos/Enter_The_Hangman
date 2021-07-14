@@ -54,8 +54,9 @@ function showScore() {
     for (let index = 0; index < playerInfo.length; index++) {
       let detail = playerInfo[index];
       // console.log(winners[i][detail]);
-      let score = document.createElement("div");
+      let score = document.createElement(index % 2 == 0 ? "h3" : "h4"); // if corto!!!!
       score.innerHTML = winners[i][detail];
+      score.setAttribute("class", "ranking");
       scoreScreen.appendChild(score);
     }
   }

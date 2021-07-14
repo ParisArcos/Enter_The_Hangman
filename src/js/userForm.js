@@ -5,11 +5,10 @@ let errorUsername = "";
 var templateUserForm = `<template id="user-form-template">
 <div id="userForm">
     <form action="">
-        <h1 class="title-username">Choose a username</h1>
-        <label class="display-block label-username">Username</label>
+        <h3 class="title-username">Choose a username</h3>
         <input class="display-block input-username" type="text" id="username" />
         <div class="errorUsername">Username requires 4 to 20 characters</div>
-        <input type="submit" value="Start" id="submitFormUsername" class="display-block button-username" />
+        <input type="submit" value="Start" id="submitFormUsername" class="display-block button-username playButton" />
     </form>
 </div>
 </template>`;
@@ -29,7 +28,7 @@ function addTemplateUserForm() {
   username.addEventListener("keydown", verifyUsername);
   errorUsername = document.querySelector(".errorUsername");
 
-  $mainScreen.insertAdjacentHTML("beforeend", templateUserForm);
+  $contentUserForm.insertAdjacentHTML("beforeend", templateUserForm);
 }
 
 function verifyUsername(e) {
@@ -44,7 +43,7 @@ function verifyUsernameSubmit(e) {
     errorUsername.style.display = "block";
   } else {
     errorUsername.style.display = "none";
-    console.log(username.value);
+    startHangman();
     startTimer();
   }
 }
