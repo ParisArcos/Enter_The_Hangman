@@ -148,7 +148,7 @@ function loseTheHangman() {
   <button type="button" id="playButton" class="playButton">Play again</button>
   <div id="contentArea" class="contentArea"></div>
 
-  <button class="showScores" id="showBtn">></button>
+  <button class="showScores" id="showBtn">Score</button>
 
   <div id="scoreScreen" class="scoreScreen">
     <button class="hideScores" id="hideBtn"><</button>
@@ -186,7 +186,7 @@ function winTheHangman() {
   <button type="button" id="playButton" class="playButton">Play again</button>
   <div id="contentArea" class="contentArea"></div>
 
-  <button class="showScores" id="showBtn">></button>
+  <button class="showScores" id="showBtn">Score</button>
 
   <div id="scoreScreen" class="scoreScreen">
     <button class="hideScores" id="hideBtn"><</button>
