@@ -294,7 +294,7 @@ function gameWin() {
   player5.timeScore = seconds;
   winners.push(player5);
   clearInterval(timeScoreboard);
-  cleanScores();
+  cleanScoreScreen();
   showScore();
   winTheHangman();
 }
