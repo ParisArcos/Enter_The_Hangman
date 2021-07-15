@@ -171,7 +171,8 @@ h4 {
 
 .img-heart-pixel {
   width: 5%;
-  position: absolute;
+  float: right;
+  padding: 0px 5px;
 }
 .scoreScreen {
   position: absolute;
@@ -210,10 +211,6 @@ h4 {
 
 .title-hangman {
   text-align: center;
-}
-
-.score-right{
-  float: right;
 }
 
 /*@media only screen and (min-width: 768px) {

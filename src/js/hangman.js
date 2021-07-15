@@ -24,6 +24,12 @@ console.log(letters); //!Only for debug. Remove it at finish
 //EnterTheHangman
 function startHangman() {
   let hangmanTemplate = `<template id=hangman-template><div id="hangman">
+  <div id="count-lifes">
+  <img class="img-heart-pixel" src="src/img/heart-pixel.svg" />
+  <img class="img-heart-pixel" src="src/img/heart-pixel.svg" />
+  <img class="img-heart-pixel" src="src/img/heart-pixel.svg" />
+  <img class="img-heart-pixel" src="src/img/heart-pixel.svg" />
+  
   <h2>Guess the word</h2>
   <div id="wordContainer">
     <div id="letterContainer" class="letterContainer"></div>
@@ -262,6 +268,8 @@ function keyboardClick(event) {
 
 function lessLife() {
   --lifes;
+  let hearts = document.getElementById('count-lifes');
+  hearts.removeChild(hearts.children[0]);
   let failMsg = [
     "I'm going to fall!",
     "Wrong answer!",
