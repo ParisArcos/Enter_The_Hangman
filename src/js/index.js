@@ -119,25 +119,26 @@ function keyboardEntri(event) {
   var btn = event.key;
   console.log(btn);
   if (btn == "Enter" && playBtn.style.display != "none") {
-    beginGame(); ///Falta la relacion entre el boton y el hidden char
-  } else if (username != "") {
-    keyboardEntry(event); //sin probar
+    beginGame();
+  } else if (contentArea.innerHTML.includes("wordContainer")) {
+    keyboardEntry(event);
   }
 }
 
 function keyboardEntry(event) {
   let buttonKey = event.key;
   let hiddenChar = document.querySelectorAll(".hiddenChar");
-  let correct = false;
-  for (const char of hiddenChar) {
-    if (char.innerHTML == buttonKey) {
+  let correct;
+  var keyboard = document.getElementsByClassName("keyboardLetter");
+  for (const char of keyboard) {
+    if (char.innerHTML == buttonKey.toUpperCase()) {
       char.style.display = "none";
       char.remove();
     }
   }
 
   for (let i = 0; i < hiddenChar.length; i++) {
-    if (hiddenChar[i].innerHTML == buttonKey) {
+    if (hiddenChar[i].innerHTML == buttonKey.toUpperCase()) {
       hiddenChar[i].removeAttribute("hidden", "");
       //event.target.setAttribute("hidden", "");
       accertNumber++;
