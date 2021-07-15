@@ -20,8 +20,9 @@ let player4 = {
   name: "Kike",
   timeScore: 1,
 };
+let scoreBoardTemplate = "";
 
-let username = "Manu";
+// let username = "Manu";
 
 // ----------- TO FIND THE WINNER ----------
 
@@ -33,28 +34,40 @@ for (let index = 0; index < winners.length; index++) {
 
 let scoreNumbers = Math.min(...scores);
 
+// let seconds = 0;
+// let timeScoreboard;
+// let timer = document.getElementById("timer");
+
 // ------- PA METERLO EN EL ARRAY ------
 
 let player5 = new Object();
 player5.name = username;
-player5.timeScore = 0;
+player5.timeScore = seconds;
 winners.push(player5);
+
+// function startTimer() {
+//   timeScoreboard = setInterval(function () {
+//     timer.textContent = "Time Playing: " + seconds;
+//     seconds++;
+//   }, 1000);
+// }
+
+// startTimer();
 
 // ----------- TO PAINT THE CURRENT PLAYER & RANKING-------------
 
-showScore();
+// showScore();
 
 function showScore() {
   let scoreScreen = document.getElementById("scoreScreen");
   let playerInfo = Object.keys(player);
 
+  // document.getElementById("currentPlayer").innerHTML = username;
   winners.sort(GetSortOrder("timeScore"));
-
   for (let i = 0; i < 5; i++) {
     for (let index = 0; index < playerInfo.length; index++) {
       let detail = playerInfo[index];
-      // console.log(winners[i][detail]);
-      let score = document.createElement(index % 2 == 0 ? "h3" : "h4"); // if corto!!!!
+      let score = document.createElement(index % 2 == 0 ? "h3" : "h4"); //* IF CORTO!!!!
       score.innerHTML = winners[i][detail];
       score.setAttribute("class", "ranking");
       scoreScreen.appendChild(score);
@@ -74,4 +87,14 @@ function GetSortOrder(prop) {
     }
     return 0;
   };
+}
+
+// clearInterval(timeScoreboard);
+
+function scoreBoard() {
+  let scoreBoardTemplate = `<template><div id="scoreScreen" class="scoreScreen">
+  <h2>User Scores</h2>
+  <p id="timer" class="timer"></p>
+</div>
+</template>`;
 }

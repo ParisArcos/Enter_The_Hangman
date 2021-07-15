@@ -53,8 +53,10 @@ let seconds = 0;
 
 function startTimer() {
   timeScoreboard = setInterval(function () {
+    let timer = document.getElementById("timer");
+    document.getElementById("currentPlayer").innerHTML = username.value;
+    timer.textContent = "Time Playing: " + seconds + "s";
     seconds++;
-    console.log(seconds);
   }, 1000);
 }
 
