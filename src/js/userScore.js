@@ -101,9 +101,9 @@ function scoreSlide() {
     console.log(showBtn.textContent);
     changeIcon(showBtn);
   });
-  hideBtn.addEventListener("click", () => {
+  /*hideBtn.addEventListener("click", () => {
     scoreScreen.classList.toggle("scoreScreen-active");
-  });
+  });*/
   showScore();
 }
 
