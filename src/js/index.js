@@ -121,8 +121,8 @@ function keyboard(event) {
   var btn = event.key;
   if (btn == "Enter") {
     beginGame(); ///Falta la relacion entre el boton y el hidden char
-  } else if (keyboard.includes(btn)) {
-    keyboardClick(btn); //sin probar
+  } else {
+    keyboardClick(event); //sin probar
   }
 }
 
