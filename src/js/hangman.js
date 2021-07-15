@@ -143,7 +143,7 @@ function loseTheHangman() {
     </div>
     </div>
     <h2 class="gameResult">GAME OVER!</h2>
-  <button type="button" id="playButton" class="playButton">Play again</button>
+  <button type="button" id="playAgain" class="playButton">Play again</button>
   <div id="contentArea" class="contentArea"></div>
 
   <button class="showScores" id="showBtn">></button>
@@ -181,7 +181,7 @@ function winTheHangman() {
     </div>
     //TODO Insert Scores
     <h2 class="gameResult">YOU WIN!</h2>
-  <button type="button" id="playButton" class="playButton">Play again</button>
+  <button type="button" id="playAgain" class="playButton">Play again</button>
   <div id="contentArea" class="contentArea"></div>
 
   <button class="showScores" id="showBtn">></button>
@@ -282,9 +282,11 @@ function lessLife() {
 function gameOver() {
   console.log("GAME OVER");
   loseTheHangman();
+
+  againBtn = document.getElementById("playAgain");
+  againBtn.addEventListener("click", playAgain);
 }
 let player5 = new Object();
-// let timeScoreboard;
 
 function gameWin() {
   console.log("YOU WON");
@@ -295,4 +297,41 @@ function gameWin() {
   cleanScoreScreen();
   //showScore();
   winTheHangman();
+
+  againBtn = document.getElementById("playAgain");
+  againBtn.addEventListener("click", playAgain);
+}
+
+function playAgain() {
+  let indexTemplate = `<template id=index>
+  <!--Contenedor principal-->
+  <div class="flex">
+    <div id="mainScreen" class="mainScreen">
+      <!--Contenedor izquierdo-->
+      <div id="mainImg" class="mainImg">
+        <img id="img" class="img" src="src/img/main.gif" />
+      </div>
+    </div>
+  </div>
+  <button type="button" id="playButton" class="playButton">Play!</button>
+  <div id="contentArea" class="contentArea"></div>
+
+  <button class="showScores" id="showBtn">></button>
+
+  <div id="scoreScreen" class="scoreScreen">
+    <button class="hideScores" id="hideBtn"><</button>
+    <h2>User Scores</h2>
+  </div>
+</template>`;
+  let contentIndexArea = document.getElementsByTagName("main")[0]; //Get content area
+  contentIndexArea.innerHTML = ""; //Erase content area's content
+  contentIndexArea.insertAdjacentHTML("beforeend", indexTemplate); //Insert template in content area
+
+  let insertIndex = document.getElementById("index").content;
+  let copyIndex = document.importNode(insertIndex, true);
+
+  contentIndexArea.appendChild(copyIndex);
+
+  playBtn = document.getElementById("playButton");
+  playBtn.addEventListener("click", beginGame);
 }
