@@ -135,10 +135,27 @@ function startHangman() {
 
 function loseTheHangman() {
   let loseTemplate = `<template id=hangman-template>
-  <div id="lose-hangman">
-    <img src="src\img\fail.gif>
-    </div></template>`;
-  let contentLoseHangmanArea = document.getElementById("contentArea"); //Get content area
+  <!--Contenedor principal-->
+  <div class="flex">
+    <div id="mainScreen" class="mainScreen">
+      <!--Contenedor izquierdo-->
+      <div id="mainImg" class="mainImg">
+        <img id="img" class="img" src="src/img/fail.gif" />
+      </div>
+    </div>
+    </div>
+    <h2 class="gameResult">GAME OVER!</h2>
+  <button type="button" id="playButton" class="playButton">Play again</button>
+  <div id="contentArea" class="contentArea"></div>
+
+  <button class="showScores" id="showBtn">></button>
+
+  <div id="scoreScreen" class="scoreScreen">
+    <button class="hideScores" id="hideBtn"><</button>
+    <h2>User Scores</h2>
+  </div>
+</template>`;
+  let contentLoseHangmanArea = document.getElementsByTagName("main")[0]; //Get content area
   contentLoseHangmanArea.innerHTML = ""; //Erase content area's content
   contentLoseHangmanArea.insertAdjacentHTML("beforeend", loseTemplate); //Insert template in content area
 
@@ -146,6 +163,49 @@ function loseTheHangman() {
   let copyLoseHangman = document.importNode(insertLoseHangman, true);
 
   contentLoseHangmanArea.appendChild(copyLoseHangman);
+
+  let image = document.getElementById("img");
+  image.style.width = "100%";
+
+  scoreSlide();
+}
+
+function winTheHangman() {
+  let winTemplate = `<template id=hangman-template>
+  <!--Contenedor principal-->
+  <div class="flex">
+    <div id="mainScreen" class="mainScreen">
+      <!--Contenedor izquierdo-->
+      <div id="mainImg" class="mainImg">
+        <img id="img" class="img" src="src/img/win.gif" />
+      </div>
+    </div>
+    </div>
+    //TODO Insert Scores
+    <h2 class="gameResult">YOU WIN!</h2>
+  <button type="button" id="playButton" class="playButton">Play again</button>
+  <div id="contentArea" class="contentArea"></div>
+
+  <button class="showScores" id="showBtn">></button>
+
+  <div id="scoreScreen" class="scoreScreen">
+    <button class="hideScores" id="hideBtn"><</button>
+    <h2>User Scores</h2>
+  </div>
+</template>`;
+  let contentWinHangmanArea = document.getElementsByTagName("main")[0]; //Get content area
+  contentWinHangmanArea.innerHTML = ""; //Erase content area's content
+  contentWinHangmanArea.insertAdjacentHTML("beforeend", winTemplate); //Insert template in content area
+
+  let insertWinHangman = document.getElementById("hangman-template").content;
+  let copyWinHangman = document.importNode(insertWinHangman, true);
+
+  contentWinHangmanArea.appendChild(copyWinHangman);
+
+  let image = document.getElementById("img");
+  image.style.width = "100%";
+
+  scoreSlide();
 }
 
 //Divides the random word
@@ -223,16 +283,21 @@ function lessLife() {
 
 function gameOver() {
   console.log("GAME OVER");
+  loseTheHangman();
 }
 let player5 = new Object();
 // let timeScoreboard;
 
 function gameWin() {
   console.log("YOU WON");
+<<<<<<< HEAD
   player5.name = username.value;
   player5.timeScore = seconds;
   winners.push(player5);
   clearInterval(timeScoreboard);
   cleanScores();
   showScore();
+=======
+  winTheHangman();
+>>>>>>> c6102230bc5b829e2961e1ad02b2c1e96a1c9f1f
 }
