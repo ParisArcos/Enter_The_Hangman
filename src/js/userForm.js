@@ -1,6 +1,7 @@
 let $contentUserForm = document.querySelector("#contentArea");
 var username = "";
 let errorUsername = "";
+let timeScoreboard;
 
 var templateUserForm = `<template id="user-form-template">
 <div id="userForm">
@@ -32,14 +33,14 @@ function addTemplateUserForm() {
 }
 
 function verifyUsername(e) {
-  if (username.value.length <= 4 || username.value.length >= 20)
+  if (username.value.length < 3 || username.value.length >= 20)
     errorUsername.style.display = "block";
   else errorUsername.style.display = "none";
 }
 
 function verifyUsernameSubmit(e) {
   e.preventDefault();
-  if (username.value.length <= 4 || username.value.length >= 20) {
+  if (username.value.length < 3 || username.value.length >= 20) {
     errorUsername.style.display = "block";
   } else {
     errorUsername.style.display = "none";
@@ -49,7 +50,7 @@ function verifyUsernameSubmit(e) {
 }
 
 let seconds = 0;
-let timeScoreboard;
+
 function startTimer() {
   timeScoreboard = setInterval(function () {
     seconds++;
