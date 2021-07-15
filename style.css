@@ -239,3 +239,7 @@ h4 {
     float: left;
   }
 }
+.gameResult {
+  text-align: center;
+  padding-bottom: 5rem;
+}
