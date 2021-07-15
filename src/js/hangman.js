@@ -319,6 +319,7 @@ function playAgain() {
   <div id="scoreScreen" class="scoreScreen">
     <h2>User Scores</h2>
   </div>
+  
 </template>`;
   let contentIndexArea = document.getElementsByTagName("main")[0]; //Get content area
   contentIndexArea.innerHTML = ""; //Erase content area's content

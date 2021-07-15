@@ -48,8 +48,8 @@ main {
 }
 .img {
   align-items: center;
-  /*   width: 65%; 
-  height: 60vh; */
+  width: 35vh;
+  /*height: 60vh; */
   transition: opacity 0.9s;
   -webkit-transition: opacity 0.9s;
   max-width: 340px;
@@ -212,7 +212,7 @@ h4 {
   text-align: center;
 }
 
-.score-right{
+.score-right {
   float: right;
 }
 
