@@ -223,11 +223,11 @@ h4 {
   float: right;
 }
 
-@media only screen and (min-width: 768px) {
-  /*.scoreScreen {
+/*@media only screen and (min-width: 768px) {
+  .scoreScreen {
     transform: translateX(0);
     position: relative;
-  }*/
+  }
   .showScores {
     display: none;
   }
@@ -238,7 +238,7 @@ h4 {
   main{
     float: left;
   }
-}
+}*/
 .gameResult {
   text-align: center;
   padding-bottom: 5rem;

@@ -293,6 +293,6 @@ function gameWin() {
   winners.push(player5);
   clearInterval(timeScoreboard);
   cleanScoreScreen();
-  showScore();
+  //showScore();
   winTheHangman();
 }
