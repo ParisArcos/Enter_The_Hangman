@@ -27,6 +27,7 @@ function addTemplateUserForm() {
     .addEventListener("click", verifyUsernameSubmit);
   username = document.querySelector("#username");
   username.addEventListener("keydown", verifyUsername);
+  username.focus();
   errorUsername = document.querySelector(".errorUsername");
 
   $contentUserForm.insertAdjacentHTML("beforeend", templateUserForm);
@@ -46,6 +47,7 @@ function verifyUsernameSubmit(e) {
     errorUsername.style.display = "none";
     startHangman();
     startTimer();
+    scoreSlide();
   }
 }
 

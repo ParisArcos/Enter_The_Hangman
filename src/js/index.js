@@ -10,18 +10,21 @@ var speakers = [
     color: "#d11d96",
     top: "25vw",
     left: "5vh",
+    textShadow: "1px 1px #9c0c88",
   },
   {
     name: "guybrush",
     color: "#fff",
     top: "80vw",
     left: "5vh",
+    textShadow: "1px 2px grey",
   },
   {
     name: "lechuck",
     color: "#2ec617",
     top: "80vw",
     left: "5vh",
+    textShadow: "1px 2px lawngreen",
   },
 ];
 
@@ -102,11 +105,50 @@ function speak(msj, speakerName) {
       text.classList.add("speaker");
       text.innerHTML = msj;
       text.style.color = speaker.color;
+      text.style.textShadow = speaker.textShadow;
       text.style.top = speaker.top;
       text.style.left = speaker.left;
       imageContainer.appendChild(text);
     }
   }
+}
+
+document.addEventListener("keydown", keyboardEntri);
+
+function keyboardEntri(event) {
+  var btn = event.key;
+  console.log(btn);
+  if (btn == "Enter" && playBtn.style.display != "none") {
+    beginGame(); ///Falta la relacion entre el boton y el hidden char
+  } else if (username != "") {
+    keyboardEntry(event); //sin probar
+  }
+}
+
+function keyboardEntry(event) {
+  let buttonKey = event.key;
+  let hiddenChar = document.querySelectorAll(".hiddenChar");
+  let correct = false;
+  for (const char of hiddenChar) {
+    if (char.innerHTML == buttonKey) {
+      char.style.display = "none";
+      char.remove();
+    }
+  }
+
+  for (let i = 0; i < hiddenChar.length; i++) {
+    if (hiddenChar[i].innerHTML == buttonKey) {
+      hiddenChar[i].removeAttribute("hidden", "");
+      //event.target.setAttribute("hidden", "");
+      accertNumber++;
+      console.log(accertNumber); //!Only for debug. Remove it at finish
+      correct = true;
+    }
+    if (hiddenChar.length == accertNumber) {
+      gameWin();
+    }
+  }
+  correct != true ? lessLife() : "";
 }
 
 /* function playIntro() {

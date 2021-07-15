@@ -1,9 +1,5 @@
 // --------- VARIABLES -------------------
 
-let player = {
-  name: "",
-  timeScore: 0,
-};
 let player1 = {
   name: "Paris",
   timeScore: 10,
@@ -28,6 +24,7 @@ let scoreBoardTemplate = "";
 
 let scores = [];
 let winners = [player1, player2, player3, player4];
+
 for (let index = 0; index < winners.length; index++) {
   scores.push(winners[index].timeScore);
 }
@@ -40,10 +37,10 @@ let scoreNumbers = Math.min(...scores);
 
 // ------- PA METERLO EN EL ARRAY ------
 
-let player5 = new Object();
+/* let player5 = new Object();
 player5.name = username;
 player5.timeScore = seconds;
-winners.push(player5);
+winners.push(player5); */
 
 // function startTimer() {
 //   timeScoreboard = setInterval(function () {
@@ -60,7 +57,7 @@ winners.push(player5);
 
 function scoreScreen() {
   let scoreScreen = document.getElementById("scoreScreen");
-  let playerInfo = Object.keys(player);
+  let playerInfo = Object.keys(player1);
 
   // document.getElementById("currentPlayer").innerHTML = username;
   winners.sort(GetSortOrder("timeScore"));
@@ -94,7 +91,22 @@ function GetSortOrder(prop) {
 function scoreBoard() {
   let scoreBoardTemplate = `<template><div id="scoreScreen" class="scoreScreen">
   <h2>User Scores</h2>
-  <p id="timer" class="timer"></p>
+  
 </div>
 </template>`;
+}
+
+// ------- TO SHOW SCORES -------
+function scoreSlide() {
+  let showBtn = document.getElementById("showBtn");
+  let hideBtn = document.getElementById("hideBtn");
+  showBtn.style.visibility = "visible";
+  showBtn.addEventListener("click", () => {
+    scoreScreen.classList.toggle("scoreScreen-active");
+  });
+
+  hideBtn.addEventListener("click", () => {
+    scoreScreen.classList.toggle("scoreScreen-active");
+  });
+  showScore();
 }

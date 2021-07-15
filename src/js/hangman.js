@@ -23,11 +23,10 @@ console.log(letters); //!Only for debug. Remove it at finish
 
 //EnterTheHangman
 function startHangman() {
-  let hangmanTemplate = `<template id=hangman-template>
-  <div id="hangman">
-  <h1>Guess the word</h1>
+  let hangmanTemplate = `<template id=hangman-template><div id="hangman">
+  <h2>Guess the word</h2>
   <div id="wordContainer">
-    <div id="letterContainer"></div>
+    <div id="letterContainer" class="letterContainer"></div>
   </div>
   <div id="keyboardTop">
   <div class="keyboardLetterContainer">
@@ -115,11 +114,13 @@ function startHangman() {
     <div class="keyboardLetterContainer">
   </div>
 </div>
-<div id="timerScreen" class="scoreScreen">
-      <h2>User Scores</h2>
-      <h3 id="currentPlayer"></h3>
-      <h4 id="timer" class="timer"></h4>
-    </div></template>`;
+  <div class="current">     
+    <p id="currentPlayer"></p>
+    <span id="timer" class="timer"></span>
+  </div>
+
+  
+    </template>`;
   let contentHangmanArea = document.getElementById("contentArea"); //Get content area
   contentHangmanArea.innerHTML = ""; //Erase content area's content
   contentHangmanArea.insertAdjacentHTML("beforeend", hangmanTemplate); //Insert template in content area
@@ -185,14 +186,17 @@ function keyboardClick(event) {
   let buttonKey = event.target.innerHTML;
   let hiddenChar = document.querySelectorAll(".hiddenChar");
   let correct = false;
+  event.target.style.display = "none";
+  event.target.remove();
   for (let i = 0; i < hiddenChar.length; i++) {
     if (hiddenChar[i].innerHTML == buttonKey) {
       hiddenChar[i].removeAttribute("hidden", "");
-      event.target.setAttribute("hidden", "");
+
       accertNumber++;
       console.log(accertNumber); //!Only for debug. Remove it at finish
       correct = true;
     }
+
     if (hiddenChar.length == accertNumber) {
       gameWin();
     }
