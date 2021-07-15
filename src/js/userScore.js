@@ -1,4 +1,8 @@
 // --------- VARIABLES -------------------
+let player = {
+  name: "",
+  timeScore: 0,
+};
 
 let player1 = {
   name: "Paris",
@@ -16,7 +20,8 @@ let player4 = {
   name: "Kike",
   timeScore: 370,
 };
-let scoreBoardTemplate = "";
+
+//let scoreBoardTemplate = "";
 
 // let username = "Manu";
 
@@ -69,7 +74,6 @@ function cleanScores() {
 }
 
 // ------- DISPLAY PLAYERS IN ORDER BY SCORE -----------
-//* THIS FUNCTION COMPARES PLAYERS BY PROPERTY (LINE 51)
 
 function GetSortOrder(prop) {
   return function (a, b) {
@@ -80,16 +84,6 @@ function GetSortOrder(prop) {
     }
     return 0;
   };
-}
-
-// clearInterval(timeScoreboard);
-
-function scoreBoard() {
-  let scoreBoardTemplate = `<template><div id="scoreScreen" class="scoreScreen">
-      <h2>User Scores</h2>
-      
-      </div>
-      </template>`;
 }
 
 // ------- TO SHOW SCORES -------
