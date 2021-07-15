@@ -115,7 +115,6 @@ function startHangman() {
   </div>
 </div>
 <div id="timerScreen" class="scoreScreen">
-     
       <p id="currentPlayer"></p>
       <span id="timer" class="timer"></span>
     </div></template>`;
@@ -134,7 +133,7 @@ function startHangman() {
 function loseTheHangman() {
   let loseTemplate = `<template id=hangman-template>
   <div id="lose-hangman">
-    <img src="src\img\fail.gif>
+    <h1>You lose!</h1>
     </div></template>`;
   let contentLoseHangmanArea = document.getElementById("contentArea"); //Get content area
   contentLoseHangmanArea.innerHTML = ""; //Erase content area's content
@@ -144,6 +143,21 @@ function loseTheHangman() {
   let copyLoseHangman = document.importNode(insertLoseHangman, true);
 
   contentLoseHangmanArea.appendChild(copyLoseHangman);
+}
+
+function winTheHangman() {
+  let winTemplate = `<template id=hangman-template>
+  <div id="win-hangman">
+    <h1>You lose!</h1>
+    </div></template>`;
+  let contentWinHangmanArea = document.getElementById("contentArea"); //Get content area
+  contentWinHangmanArea.innerHTML = ""; //Erase content area's content
+  contentWinHangmanArea.insertAdjacentHTML("beforeend", winTemplate); //Insert template in content area
+
+  let insertWinHangman = document.getElementById("hangman-template").content;
+  let copyWinHangman = document.importNode(insertWinHangman, true);
+
+  contentWinHangmanArea.appendChild(copyWinHangman);
 }
 
 //Divides the random word
@@ -218,8 +232,13 @@ function lessLife() {
 
 function gameOver() {
   console.log("GAME OVER");
+  //setTimeout(playIntro, 1000, image.classList.add("dark"));
+  loseTheHangman();
+  image.src = "srcimg\fail.gif";
 }
 
 function gameWin() {
   console.log("YOU WON");
+  winTheHangman();
+  image.src = "srcimgwin.gif";
 }

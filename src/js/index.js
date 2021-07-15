@@ -115,16 +115,16 @@ function speak(msj, speakerName) {
   }
 }
 
-document.addEventListener("keydown", keyboard);
+// document.addEventListener("keydown", keyboard);
 
-function keyboard(event) {
-  var btn = event.key;
-  if (btn == "Enter") {
-    beginGame(); ///Falta la relacion entre el boton y el hidden char
-  } else {
-    keyboardClick(event); //sin probar
-  }
-}
+// function keyboard(event) {
+//   var btn = event.key;
+//   if (btn == "Enter") {
+//     beginGame(); ///Falta la relacion entre el boton y el hidden char
+//   } else {
+//     keyboardClick(event); //sin probar
+//   }
+// }
 
 /* function playIntro() {
   image.src = "src/img/play.gif";
