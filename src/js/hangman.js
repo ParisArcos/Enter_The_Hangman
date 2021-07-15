@@ -290,14 +290,11 @@ let player5 = new Object();
 
 function gameWin() {
   console.log("YOU WON");
-<<<<<<< HEAD
   player5.name = username.value;
   player5.timeScore = seconds;
   winners.push(player5);
   clearInterval(timeScoreboard);
   cleanScores();
   showScore();
-=======
   winTheHangman();
->>>>>>> c6102230bc5b829e2961e1ad02b2c1e96a1c9f1f
 }
