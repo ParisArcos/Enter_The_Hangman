@@ -44,7 +44,7 @@ let scoreNumbers = Math.min(...scores);
 
 // showScore();
 
-function scoreScreen() {
+function showScore() {
   let scoreScreen = document.getElementById("scoreScreen");
   console.log(scoreScreen.children);
   let playerInfo = Object.keys(player1);
@@ -104,7 +104,7 @@ function scoreSlide() {
   hideBtn.addEventListener("click", () => {
     scoreScreen.classList.toggle("scoreScreen-active");
   });
-  //showScore();
+  showScore();
 }
 
 function cleanScoreScreen() {
