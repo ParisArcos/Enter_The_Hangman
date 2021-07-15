@@ -285,8 +285,16 @@ function gameOver() {
   console.log("GAME OVER");
   loseTheHangman();
 }
+let player5 = new Object();
+// let timeScoreboard;
 
 function gameWin() {
   console.log("YOU WON");
+  player5.name = username.value;
+  player5.timeScore = seconds;
+  winners.push(player5);
+  clearInterval(timeScoreboard);
+  cleanScores();
+  showScore();
   winTheHangman();
 }
