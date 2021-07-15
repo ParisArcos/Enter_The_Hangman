@@ -2,19 +2,19 @@
 
 let player1 = {
   name: "Paris",
-  timeScore: 10,
+  timeScore: 300,
 };
 let player2 = {
   name: "Salva",
-  timeScore: 2,
+  timeScore: 230,
 };
 let player3 = {
   name: "Alberto",
-  timeScore: 21,
+  timeScore: 210,
 };
 let player4 = {
   name: "Kike",
-  timeScore: 1,
+  timeScore: 370,
 };
 let scoreBoardTemplate = "";
 
@@ -31,17 +31,6 @@ for (let index = 0; index < winners.length; index++) {
 
 let scoreNumbers = Math.min(...scores);
 
-// let seconds = 0;
-// let timeScoreboard;
-// let timer = document.getElementById("timer");
-
-// ------- PA METERLO EN EL ARRAY ------
-
-/* let player5 = new Object();
-player5.name = username;
-player5.timeScore = seconds;
-winners.push(player5); */
-
 // function startTimer() {
 //   timeScoreboard = setInterval(function () {
 //     timer.textContent = "Time Playing: " + seconds;
@@ -57,8 +46,9 @@ winners.push(player5); */
 
 function showScore() {
   let scoreScreen = document.getElementById("scoreScreen");
+  console.log(scoreScreen.children);
   let playerInfo = Object.keys(player1);
-
+  scoreScreen.innerHTML = "";
   // document.getElementById("currentPlayer").innerHTML = username;
   winners.sort(GetSortOrder("timeScore"));
   for (let i = 0; i < 5; i++) {
@@ -69,6 +59,12 @@ function showScore() {
       score.setAttribute("class", "ranking");
       scoreScreen.appendChild(score);
     }
+  }
+}
+
+function cleanScores() {
+  for (i = 1; i < scoreScreen.children.length; i++) {
+    scoreScreen.removeChild(scoreScreen.children[i]);
   }
 }
 
@@ -90,10 +86,10 @@ function GetSortOrder(prop) {
 
 function scoreBoard() {
   let scoreBoardTemplate = `<template><div id="scoreScreen" class="scoreScreen">
-  <h2>User Scores</h2>
-  
-</div>
-</template>`;
+      <h2>User Scores</h2>
+      
+      </div>
+      </template>`;
 }
 
 // ------- TO SHOW SCORES -------
@@ -110,3 +106,15 @@ function scoreSlide() {
   });
   showScore();
 }
+
+// ------- WHEN YOU WIN --------
+// gameWin();
+// let seconds = 0;
+// let timeScoreboard;
+
+// ------- PA METERLO EN EL ARRAY ------
+
+// let player5 = new Object();
+// player5.name = username;
+// player5.timeScore = timeScoreBoard;
+// winners.push(player5);
