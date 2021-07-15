@@ -114,12 +114,10 @@ function startHangman() {
     <div class="keyboardLetterContainer">
   </div>
 </div>
-  <div class="current">     
+  <div class="current">
     <p id="currentPlayer"></p>
     <span id="timer" class="timer"></span>
   </div>
-
-  
     </template>`;
   let contentHangmanArea = document.getElementById("contentArea"); //Get content area
   contentHangmanArea.innerHTML = ""; //Erase content area's content
