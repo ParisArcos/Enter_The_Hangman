@@ -10,23 +10,28 @@ var speakers = [
     color: "#d11d96",
     top: "25vw",
     left: "5vh",
+    textShadow: "1px 1px #9c0c88",
   },
   {
     name: "guybrush",
     color: "#fff",
     top: "80vw",
     left: "5vh",
+    textShadow: "1px 2px grey",
   },
   {
     name: "lechuck",
     color: "#2ec617",
     top: "80vw",
     left: "5vh",
+    textShadow: "1px 2px lawngreen",
   },
 ];
 
 function beginGame() {
-  setTimeout(playIntro, 1000, image.classList.add("dark"));
+  if (playBtn.style.display != "none") {
+    setTimeout(playIntro, 1000, image.classList.add("dark"));
+  }
 }
 
 function playIntro() {
@@ -102,10 +107,22 @@ function speak(msj, speakerName) {
       text.classList.add("speaker");
       text.innerHTML = msj;
       text.style.color = speaker.color;
+      text.style.textShadow = speaker.textShadow;
       text.style.top = speaker.top;
       text.style.left = speaker.left;
       imageContainer.appendChild(text);
     }
+  }
+}
+
+document.addEventListener("keydown", keyboard);
+
+function keyboard(event) {
+  var btn = event.key;
+  if (btn == "Enter") {
+    beginGame(); ///Falta la relacion entre el boton y el hidden char
+  } else if (keyboard.includes(btn)) {
+    keyboardClick(btn); //sin probar
   }
 }
 
