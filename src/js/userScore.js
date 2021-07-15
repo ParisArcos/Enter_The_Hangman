@@ -66,7 +66,6 @@ function showScore() {
     }
   }
 }
-s;
 
 function cleanScores() {
   for (i = 1; i < scoreScreen.children.length; i++) {
@@ -96,9 +95,7 @@ function scoreSlide() {
     console.log(showBtn.textContent);
     changeIcon(showBtn);
   });
-  hideBtn.addEventListener("click", () => {
-    scoreScreen.classList.toggle("scoreScreen-active");
-  });
+
   showScore();
 }
 
