@@ -31,12 +31,6 @@ main {
   width: 100vh;
   align-items: flex-start;
 }
-.scoreScreen {
-  color: #920a85;
-  text-shadow: 1px 2px rgb(97, 9, 105);
-  background-color: black;
-  padding: 2.5%;
-}
 
 .mainImg {
   width: 100%;
@@ -76,7 +70,7 @@ main {
 .underlined {
   border-bottom: solid;
   width: 20px;
-  margin: 5% 8%;
+  margin: 5% 2%;
 }
 .keyboardLetterContainer {
   width: 30px;
@@ -149,7 +143,7 @@ h3 {
   margin-top: 2rem;
 }
 h4 {
-  margin-bottom: 6rem;
+  margin-bottom: 1rem;
 }
 
 .timer {
@@ -164,4 +158,46 @@ h4 {
 
 .contentArea {
   display: none;
+}
+
+.scoreScreen {
+  position: absolute;
+  box-sizing: border-box;
+  transform: translateX(-100%);
+  transition: 1s linear;
+  color: #920a85;
+  text-shadow: 1px 2px rgb(97, 9, 105);
+  background-color: black;
+  padding: 2.5%;
+  width: 100%;
+  height: 90vh;
+}
+
+.scoreScreen-active {
+  transform: translateX(0%);
+  transition: 1s linear;
+}
+
+.showScores {
+  position: fixed;
+  visibility: hidden;
+  background-color: black;
+  color: white;
+  bottom: 1rem;
+  height: 2rem;
+  width: 2rem;
+}
+
+.hideScores {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  background-color: black;
+  color: white;
+  height: 2rem;
+  width: 2rem;
+}
+
+.current {
+  margin-left: 2rem;
 }

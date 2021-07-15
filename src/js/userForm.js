@@ -46,6 +46,7 @@ function verifyUsernameSubmit(e) {
     errorUsername.style.display = "none";
     startHangman();
     startTimer();
+    scoreSlide();
   }
 }
 
