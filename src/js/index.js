@@ -29,9 +29,7 @@ var speakers = [
 ];
 
 function beginGame() {
-  if (playBtn.style.display != "none") {
-    setTimeout(playIntro, 1000, image.classList.add("dark"));
-  }
+  setTimeout(playIntro, 1000, image.classList.add("dark"));
 }
 
 function playIntro() {
@@ -115,16 +113,43 @@ function speak(msj, speakerName) {
   }
 }
 
-// document.addEventListener("keydown", keyboard);
+document.addEventListener("keydown", keyboardEntri);
 
-// function keyboard(event) {
-//   var btn = event.key;
-//   if (btn == "Enter") {
-//     beginGame(); ///Falta la relacion entre el boton y el hidden char
-//   } else {
-//     keyboardClick(event); //sin probar
-//   }
-// }
+function keyboardEntri(event) {
+  var btn = event.key;
+  console.log(btn);
+  if (btn == "Enter" && playBtn.style.display != "none") {
+    beginGame(); ///Falta la relacion entre el boton y el hidden char
+  } else if (username != "") {
+    keyboardEntry(event); //sin probar
+  }
+}
+
+function keyboardEntry(event) {
+  let buttonKey = event.key;
+  let hiddenChar = document.querySelectorAll(".hiddenChar");
+  let correct = false;
+  for (const char of hiddenChar) {
+    if (char.innerHTML == buttonKey) {
+      char.style.display = "none";
+      char.remove();
+    }
+  }
+
+  for (let i = 0; i < hiddenChar.length; i++) {
+    if (hiddenChar[i].innerHTML == buttonKey) {
+      hiddenChar[i].removeAttribute("hidden", "");
+      //event.target.setAttribute("hidden", "");
+      accertNumber++;
+      console.log(accertNumber); //!Only for debug. Remove it at finish
+      correct = true;
+    }
+    if (hiddenChar.length == accertNumber) {
+      gameWin();
+    }
+  }
+  correct != true ? lessLife() : "";
+}
 
 /* function playIntro() {
   image.src = "src/img/play.gif";

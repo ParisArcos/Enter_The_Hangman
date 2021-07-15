@@ -114,10 +114,13 @@ function startHangman() {
     <div class="keyboardLetterContainer">
   </div>
 </div>
-<div id="timerScreen" class="scoreScreen">
-      <p id="currentPlayer"></p>
-      <span id="timer" class="timer"></span>
-    </div></template>`;
+  <div class="current">     
+    <p id="currentPlayer"></p>
+    <span id="timer" class="timer"></span>
+  </div>
+
+  
+    </template>`;
   let contentHangmanArea = document.getElementById("contentArea"); //Get content area
   contentHangmanArea.innerHTML = ""; //Erase content area's content
   contentHangmanArea.insertAdjacentHTML("beforeend", hangmanTemplate); //Insert template in content area
@@ -132,10 +135,27 @@ function startHangman() {
 
 function loseTheHangman() {
   let loseTemplate = `<template id=hangman-template>
-  <div id="lose-hangman">
-    <h1>You lose!</h1>
-    </div></template>`;
-  let contentLoseHangmanArea = document.getElementById("contentArea"); //Get content area
+  <!--Contenedor principal-->
+  <div class="flex">
+    <div id="mainScreen" class="mainScreen">
+      <!--Contenedor izquierdo-->
+      <div id="mainImg" class="mainImg">
+        <img id="img" class="img" src="src/img/fail.gif" />
+      </div>
+    </div>
+    </div>
+    <h2 class="gameResult">GAME OVER!</h2>
+  <button type="button" id="playButton" class="playButton">Play again</button>
+  <div id="contentArea" class="contentArea"></div>
+
+  <button class="showScores" id="showBtn">></button>
+
+  <div id="scoreScreen" class="scoreScreen">
+    <button class="hideScores" id="hideBtn"><</button>
+    <h2>User Scores</h2>
+  </div>
+</template>`;
+  let contentLoseHangmanArea = document.getElementsByTagName("main")[0]; //Get content area
   contentLoseHangmanArea.innerHTML = ""; //Erase content area's content
   contentLoseHangmanArea.insertAdjacentHTML("beforeend", loseTemplate); //Insert template in content area
 
@@ -143,14 +163,37 @@ function loseTheHangman() {
   let copyLoseHangman = document.importNode(insertLoseHangman, true);
 
   contentLoseHangmanArea.appendChild(copyLoseHangman);
+
+  let image = document.getElementById("img");
+  image.style.width = "100%";
+
+  scoreSlide();
 }
 
 function winTheHangman() {
   let winTemplate = `<template id=hangman-template>
-  <div id="win-hangman">
-    <h1>You lose!</h1>
-    </div></template>`;
-  let contentWinHangmanArea = document.getElementById("contentArea"); //Get content area
+  <!--Contenedor principal-->
+  <div class="flex">
+    <div id="mainScreen" class="mainScreen">
+      <!--Contenedor izquierdo-->
+      <div id="mainImg" class="mainImg">
+        <img id="img" class="img" src="src/img/win.gif" />
+      </div>
+    </div>
+    </div>
+    //TODO Insert Scores
+    <h2 class="gameResult">YOU WIN!</h2>
+  <button type="button" id="playButton" class="playButton">Play again</button>
+  <div id="contentArea" class="contentArea"></div>
+
+  <button class="showScores" id="showBtn">></button>
+
+  <div id="scoreScreen" class="scoreScreen">
+    <button class="hideScores" id="hideBtn"><</button>
+    <h2>User Scores</h2>
+  </div>
+</template>`;
+  let contentWinHangmanArea = document.getElementsByTagName("main")[0]; //Get content area
   contentWinHangmanArea.innerHTML = ""; //Erase content area's content
   contentWinHangmanArea.insertAdjacentHTML("beforeend", winTemplate); //Insert template in content area
 
@@ -158,6 +201,11 @@ function winTheHangman() {
   let copyWinHangman = document.importNode(insertWinHangman, true);
 
   contentWinHangmanArea.appendChild(copyWinHangman);
+
+  let image = document.getElementById("img");
+  image.style.width = "100%";
+
+  scoreSlide();
 }
 
 //Divides the random word
@@ -198,14 +246,17 @@ function keyboardClick(event) {
   let buttonKey = event.target.innerHTML;
   let hiddenChar = document.querySelectorAll(".hiddenChar");
   let correct = false;
+  event.target.style.display = "none";
+  event.target.remove();
   for (let i = 0; i < hiddenChar.length; i++) {
     if (hiddenChar[i].innerHTML == buttonKey) {
       hiddenChar[i].removeAttribute("hidden", "");
-      event.target.setAttribute("hidden", "");
+
       accertNumber++;
       console.log(accertNumber); //!Only for debug. Remove it at finish
       correct = true;
     }
+
     if (hiddenChar.length == accertNumber) {
       gameWin();
     }
@@ -232,13 +283,10 @@ function lessLife() {
 
 function gameOver() {
   console.log("GAME OVER");
-  //setTimeout(playIntro, 1000, image.classList.add("dark"));
   loseTheHangman();
-  image.src = "srcimg\fail.gif";
 }
 
 function gameWin() {
   console.log("YOU WON");
   winTheHangman();
-  image.src = "srcimgwin.gif";
 }
