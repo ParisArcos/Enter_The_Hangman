@@ -58,7 +58,7 @@ winners.push(player5);
 
 // showScore();
 
-function showScore() {
+function scoreScreen() {
   let scoreScreen = document.getElementById("scoreScreen");
   let playerInfo = Object.keys(player);
 
