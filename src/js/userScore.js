@@ -107,6 +107,15 @@ function scoreSlide() {
   showScore();
 }
 
+function cleanScoreScreen() {
+  var ranking = document.getElementsByClassName("ranking");
+  let n = ranking.length;
+  for (let scr = 0; scr < n; scr++) {
+    for (const line of ranking) {
+      line.remove();
+    }
+  }
+}
 // ------- WHEN YOU WIN --------
 // gameWin();
 // let seconds = 0;
