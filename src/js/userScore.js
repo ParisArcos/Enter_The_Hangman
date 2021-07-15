@@ -104,7 +104,7 @@ function scoreSlide() {
   hideBtn.addEventListener("click", () => {
     scoreScreen.classList.toggle("scoreScreen-active");
   });
-  showScore();
+  //showScore();
 }
 
 function cleanScoreScreen() {
