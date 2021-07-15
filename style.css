@@ -26,14 +26,15 @@ main {
   align-content: stretch;
 }
 .mainScreen {
+  position: relative;
   display: flex;
   flex-direction: row;
-  width: 100vh;
+  /* width: 100vh; */
   align-items: flex-start;
 }
 
 .mainImg {
-  width: 100%;
+  /*   width: 100%; */
   display: flex;
   justify-content: space-around;
   padding: 2.5%;
@@ -47,9 +48,15 @@ main {
 }
 .img {
   align-items: center;
-  width: 65%;
+  /*   width: 65%; 
+  height: 60vh; */
   transition: opacity 0.9s;
   -webkit-transition: opacity 0.9s;
+  max-width: 340px;
+}
+
+.img-conversation {
+  height: 70vh !important;
 }
 .img.dark {
   opacity: 0;
@@ -154,14 +161,17 @@ h4 {
 .speaker {
   position: absolute;
   top: 95vw;
+  font-size: 1em;
 }
 
 .contentArea {
   display: none;
+  justify-content: center;
 }
 
-.img-heart-pixel{
-  width: 10%;
+.img-heart-pixel {
+  width: 5%;
+  position: absolute;
 }
 .scoreScreen {
   position: absolute;
@@ -203,4 +213,29 @@ h4 {
 
 .current {
   margin-left: 2rem;
+}
+
+.title-hangman {
+  text-align: center;
+}
+
+.score-right{
+  float: right;
+}
+
+@media only screen and (min-width: 768px) {
+  /*.scoreScreen {
+    transform: translateX(0);
+    position: relative;
+  }*/
+  .showScores {
+    display: none;
+  }
+
+  .hideScores {
+    display: none;
+  }
+  main{
+    float: left;
+  }
 }

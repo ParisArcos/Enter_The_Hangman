@@ -8,15 +8,15 @@ var speakers = [
   {
     name: "elaine",
     color: "#d11d96",
-    top: "25vw",
-    left: "5vh",
+    top: "5%",
+    left: "5%",
     textShadow: "1px 1px #9c0c88",
   },
   {
     name: "guybrush",
     color: "#fff",
-    top: "80vw",
-    left: "5vh",
+    top: "80%",
+    left: "5%",
     textShadow: "1px 2px grey",
   },
   {
