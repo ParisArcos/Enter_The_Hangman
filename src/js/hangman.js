@@ -146,10 +146,9 @@ function loseTheHangman() {
   <button type="button" id="playAgain" class="playButton">Play again</button>
   <div id="contentArea" class="contentArea"></div>
 
-  <button class="showScores" id="showBtn">></button>
+  <button class="showScores" id="showBtn">Score</button>
 
   <div id="scoreScreen" class="scoreScreen">
-    <button class="hideScores" id="hideBtn"><</button>
     <h2>User Scores</h2>
   </div>
 </template>`;
@@ -184,10 +183,9 @@ function winTheHangman() {
   <button type="button" id="playAgain" class="playButton">Play again</button>
   <div id="contentArea" class="contentArea"></div>
 
-  <button class="showScores" id="showBtn">></button>
+  <button class="showScores" id="showBtn">Score</button>
 
   <div id="scoreScreen" class="scoreScreen">
-    <button class="hideScores" id="hideBtn"><</button>
     <h2>User Scores</h2>
   </div>
 </template>`;
@@ -314,12 +312,11 @@ function playAgain() {
     </div>
   </div>
   <button type="button" id="playButton" class="playButton">Play!</button>
-  <div id="contentArea" class="contentArea"></div>
+  <div id="contentArea" class="contentArea"</div>
 
-  <button class="showScores" id="showBtn">></button>
+  <button class="showScores" id="showBtn">Score</button>
 
   <div id="scoreScreen" class="scoreScreen">
-    <button class="hideScores" id="hideBtn"><</button>
     <h2>User Scores</h2>
   </div>
 </template>`;

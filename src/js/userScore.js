@@ -90,16 +90,20 @@ function GetSortOrder(prop) {
 // ------- TO SHOW SCORES -------
 function scoreSlide() {
   let showBtn = document.getElementById("showBtn");
-  let hideBtn = document.getElementById("hideBtn");
   showBtn.style.visibility = "visible";
   showBtn.addEventListener("click", () => {
     scoreScreen.classList.toggle("scoreScreen-active");
+    console.log(showBtn.textContent);
+    changeIcon(showBtn);
   });
-
   hideBtn.addEventListener("click", () => {
     scoreScreen.classList.toggle("scoreScreen-active");
   });
   showScore();
+}
+
+function changeIcon(showBtn) {
+  showBtn.textContent == ">" ? (showBtn.textContent = "<") : ">";
 }
 
 function cleanScoreScreen() {
