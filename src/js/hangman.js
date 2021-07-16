@@ -301,7 +301,8 @@ function gameWin() {
 }
 
 function playAgain() {
-  let indexTemplate = `<template id=index>
+  location.reload();
+  /* let indexTemplate = `<template id=index>
   <!--Contenedor principal-->
   <div class="flex">
     <div id="mainScreen" class="mainScreen">
@@ -331,5 +332,5 @@ function playAgain() {
   contentIndexArea.appendChild(copyIndex);
 
   playBtn = document.getElementById("playButton");
-  playBtn.addEventListener("click", beginGame);
+  playBtn.addEventListener("click", beginGame); */
 }
