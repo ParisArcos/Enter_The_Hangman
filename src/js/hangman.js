@@ -15,6 +15,15 @@ let words = [
   "RATS",
   "RUDDER",
   "FLAG",
+  "EYEPATCH",
+  "PARROT",
+  "HOOK",
+  "CAPTAIN",
+  "ANCHOR",
+  "GOLD",
+  "CHEST",
+  "MERMAID",
+  "CANNON",
 ]; //Words to play
 let randomWord = words[Math.floor(Math.random() * words.length)]; //Get a random word
 let letters = []; //To store the letters
@@ -184,7 +193,7 @@ function winTheHangman() {
       </div>
     </div>
     </div>
-    //TODO Insert Scores
+    <p id="yourScore"></p>
     <h2 class="gameResult">YOU WIN!</h2>
   <button type="button" id="playAgain" class="playButton">Play again</button>
   <div id="contentArea" class="contentArea"></div>
@@ -206,6 +215,11 @@ function winTheHangman() {
 
   let image = document.getElementById("img");
   image.style.width = "100%";
+
+  let yourScore = document.getElementById("yourScore");
+  let yourScoreHTML = yourScore.innerHTML;
+  yourScoreHTML = "Your score is " + seconds + "sec.";
+  console.log(yourScoreHTML);
 
   scoreSlide();
 }
@@ -268,7 +282,7 @@ function keyboardClick(event) {
 
 function lessLife() {
   --lifes;
-  let hearts = document.getElementById('count-lifes');
+  let hearts = document.getElementById("count-lifes");
   hearts.removeChild(hearts.children[0]);
   let failMsg = [
     "I'm going to fall!",
