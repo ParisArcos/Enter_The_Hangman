@@ -34,10 +34,10 @@ function beginGame() {
 
 function playIntro() {
   const introConver = [
-    "Guybrush, te han dejado colgado?", //2
-    "Elaine... podrias ayudarme?", //7
-    "Primero la contraseña, la recuerdas verdad?", //12
-    "Porsupuesto que si... (PSst, amigo echame una mano)", //17
+    "Guybrush, are you dancing the hempen jig?", //2
+    "Elaine... could you help me?", //7
+    "First the password, you remember it right?", //12
+    "Of course... (ps, can you help me?)", //17
   ];
 
   playBtn.style.display = "none";

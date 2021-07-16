@@ -38,7 +38,7 @@ function startHangman() {
   <img class="img-heart-pixel" src="src/img/heart-pixel.svg" />
   <img class="img-heart-pixel" src="src/img/heart-pixel.svg" />
   <img class="img-heart-pixel" src="src/img/heart-pixel.svg" />
-  
+
   <h2>Guess the word</h2>
   <div id="wordContainer">
     <div id="letterContainer" class="letterContainer"></div>
