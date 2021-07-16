@@ -37,7 +37,7 @@ function playIntro() {
     "Guybrush, te han dejado colgado?", //2
     "Elaine... podrias ayudarme?", //7
     "Primero la contraseña, la recuerdas verdad?", //12
-    "Porsupuesto que si... (PSst, amigo hechame una mano)", //17
+    "Porsupuesto que si... (PSst, amigo echame una mano)", //17
   ];
 
   playBtn.style.display = "none";
