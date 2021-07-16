@@ -173,12 +173,13 @@ function loseTheHangman() {
 
   let insertLoseHangman = document.getElementById("hangman-template").content;
   let copyLoseHangman = document.importNode(insertLoseHangman, true);
-
+  contentLoseHangmanArea.innerHTML = "";
   contentLoseHangmanArea.appendChild(copyLoseHangman);
 
   let image = document.getElementById("img");
   image.style.width = "100%";
-
+  againBtn = document.getElementById("playAgain");
+  againBtn.addEventListener("click", playAgain);
   scoreSlide();
 }
 
@@ -210,7 +211,7 @@ function winTheHangman() {
 
   let insertWinHangman = document.getElementById("hangman-template").content;
   let copyWinHangman = document.importNode(insertWinHangman, true);
-
+  contentWinHangmanArea.innerHTML = "";
   contentWinHangmanArea.appendChild(copyWinHangman);
 
   let image = document.getElementById("img");
@@ -302,9 +303,6 @@ function lessLife() {
 function gameOver() {
   console.log("GAME OVER");
   loseTheHangman();
-
-  againBtn = document.getElementById("playAgain");
-  againBtn.addEventListener("click", playAgain);
 }
 let player5 = new Object();
 
@@ -313,6 +311,7 @@ function gameWin() {
   player5.name = username.value;
   player5.timeScore = seconds;
   winners.push(player5);
+  scores.push(player5);
   clearInterval(timeScoreboard);
   cleanScoreScreen();
   //showScore();
@@ -324,7 +323,7 @@ function gameWin() {
 
 function playAgain() {
   location.reload();
-  /* let indexTemplate = `<template id=index>
+  let indexTemplate = `<template id=index>
   <!--Contenedor principal-->
   <div class="flex">
     <div id="mainScreen" class="mainScreen">
@@ -350,9 +349,9 @@ function playAgain() {
 
   let insertIndex = document.getElementById("index").content;
   let copyIndex = document.importNode(insertIndex, true);
-
+  contentIndexArea.innerHTML = "";
   contentIndexArea.appendChild(copyIndex);
 
   playBtn = document.getElementById("playButton");
-  playBtn.addEventListener("click", beginGame); */
+  playBtn.addEventListener("click", beginGame);
 }

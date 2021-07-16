@@ -19,7 +19,7 @@ function addTemplateUserForm() {
   $contentUserForm.insertAdjacentHTML("beforeend", templateUserForm);
   let contentTemplate = document.querySelector("#user-form-template").content;
   let copyTemplate = document.importNode(contentTemplate, true);
-
+  $contentUserForm.innerHTML = "";
   $contentUserForm.appendChild(copyTemplate);
 
   document
