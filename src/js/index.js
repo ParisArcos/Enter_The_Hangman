@@ -1,9 +1,48 @@
-playBtn = document.getElementById("playButton");
+/* playBtn = document.getElementById("playButton");
 playBtn.addEventListener("click", beginGame);
 contentArea = document.getElementById("contentArea");
 var imageContainer = document.getElementById("mainImg");
-var image = document.getElementById("img");
+var image = document.getElementById("img"); */
+function play() {
+  let indexTemplate = `<template id="index">
+  <!--Contenedor principal-->
+  <div class="flex">
+    <div id="mainScreen" class="mainScreen">
+      <!--Contenedor izquierdo-->
+      <div id="mainImg" class="mainImg">
+        <img id="img" class="img" src="src/img/main.gif" />
+      </div>
+    </div>
+  </div>
+  <button type="button" id="playButton" class="playButton">Play!</button>
+  <div id="contentArea" class="contentArea"></div>
 
+  <button class="showScores" id="showBtn">Score</button>
+
+  <div id="scoreScreen" class="scoreScreen">
+    <h2>User Scores</h2>
+  </div>
+</template>`;
+  let contentIndexArea = document.getElementsByTagName("main")[0]; //Get content area
+  contentIndexArea.innerHTML = ""; //Erase content area's content
+  contentIndexArea.insertAdjacentHTML("beforeend", indexTemplate); //Insert template in content area
+
+  let insertIndex = document.getElementById("index").content;
+  let copyIndex = document.importNode(insertIndex, true);
+
+  contentIndexArea.appendChild(copyIndex);
+
+  playBtn = document.getElementById("playButton");
+  playBtn.addEventListener("click", beginGame);
+  playBtn.addEventListener("keydown", beginGame);
+}
+
+play();
+/* playBtn = document.getElementById("playButton");
+playBtn.addEventListener("click", beginGame); */
+$contentUserForm = document.getElementById("contentArea");
+var imageContainer = document.getElementById("mainImg");
+var image = document.getElementById("img");
 var speakers = [
   {
     name: "elaine",
@@ -117,7 +156,7 @@ document.addEventListener("keydown", keyboardEntri);
 
 function keyboardEntri(event) {
   var btn = event.key;
-  console.log(btn);
+
   if (btn == "Enter" && playBtn.style.display != "none") {
     beginGame();
   } else if (contentArea.innerHTML.includes("wordContainer")) {

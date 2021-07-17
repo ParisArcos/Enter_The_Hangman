@@ -1,4 +1,4 @@
-let $contentUserForm = document.querySelector("#contentArea");
+//let $contentUserForm = document.querySelector("#contentArea");
 var username = "";
 let errorUsername = "";
 let timeScoreboard;
@@ -17,9 +17,9 @@ var templateUserForm = `<template id="user-form-template">
 function addTemplateUserForm() {
   $contentUserForm.innerHTML = "";
   $contentUserForm.insertAdjacentHTML("beforeend", templateUserForm);
-  let contentTemplate = document.querySelector("#user-form-template").content;
+  let contentTemplate = document.getElementById("user-form-template").content;
   let copyTemplate = document.importNode(contentTemplate, true);
-
+  $contentUserForm.innerHTML = "";
   $contentUserForm.appendChild(copyTemplate);
 
   document

@@ -51,7 +51,6 @@ let scoreNumbers = Math.min(...scores);
 
 function showScore() {
   let scoreScreen = document.getElementById("scoreScreen");
-  console.log(scoreScreen.children);
   let playerInfo = Object.keys(player1);
   scoreScreen.innerHTML = "";
   // document.getElementById("currentPlayer").innerHTML = username;
@@ -60,9 +59,15 @@ function showScore() {
     for (let index = 0; index < playerInfo.length; index++) {
       let detail = playerInfo[index];
       let score = document.createElement(index % 2 == 0 ? "h3" : "h4"); //* IF CORTO!!!!
-      score.innerHTML = winners[i][detail];
+
+      if (winners[i] !== undefined) {
+        score.innerHTML = winners[i][detail];
+        score.setAttribute("class", "ranking");
+        scoreScreen.appendChild(score);
+      }
+      /*     score.innerHTML = winners[i][detail];
       score.setAttribute("class", "ranking");
-      scoreScreen.appendChild(score);
+      scoreScreen.appendChild(score); */
     }
   }
 }

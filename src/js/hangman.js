@@ -138,7 +138,7 @@ function startHangman() {
 }
 
 function loseTheHangman() {
-  let loseTemplate = `<template id=hangman-template>
+  let loseTemplate = `<template id="hangman-template">
   <!--Contenedor principal-->
   <div class="flex">
     <div id="mainScreen" class="mainScreen">
@@ -174,7 +174,7 @@ function loseTheHangman() {
 }
 
 function winTheHangman() {
-  let winTemplate = `<template id=hangman-template>
+  let winTemplate = `<template id="hangman-template">
   <!--Contenedor principal-->
   <div class="flex">
     <div id="mainScreen" class="mainScreen">
@@ -305,11 +305,11 @@ function gameWin() {
   winTheHangman();
 
   againBtn = document.getElementById("playAgain");
-  againBtn.addEventListener("click", playAgain);
+  againBtn.addEventListener("click", play);
 }
 
-function playAgain() {
-  let indexTemplate = `<template id=index>
+function play() {
+  let indexTemplate = `<template id="index">
   <!--Contenedor principal-->
   <div class="flex">
     <div id="mainScreen" class="mainScreen">
@@ -320,7 +320,7 @@ function playAgain() {
     </div>
   </div>
   <button type="button" id="playButton" class="playButton">Play!</button>
-  <div id="contentArea" class="contentArea"</div>
+  <div id="contentArea" class="contentArea"></div>
 
   <button class="showScores" id="showBtn">Score</button>
 
