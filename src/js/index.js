@@ -73,12 +73,10 @@ function beginGame() {
 
 function playIntro() {
   const introConver = [
-    "Por fin, mi querido Guybrush, se deja caer!!", //2
-    "... Podria ayudarme, señorita?", //7
-    "no me recuerdas verdad?", //12
-    "Porsupuesto que si, esto ... no tendras una cuerda verdad?", //17
-    "A si? soy rubia o morena?", //22
-    "eso es una prgunta muy personal...", //27
+    "Guybrush, are you dancing the hempen jig?", //2
+    "Elaine... could you help me?", //7
+    "First the password, you remember it right?", //12
+    "Of course... (ps, can you help me?)", //17
   ];
 
   playBtn.style.display = "none";

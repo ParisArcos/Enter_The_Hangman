@@ -15,6 +15,15 @@ let words = [
   "RATS",
   "RUDDER",
   "FLAG",
+  "EYEPATCH",
+  "PARROT",
+  "HOOK",
+  "CAPTAIN",
+  "ANCHOR",
+  "GOLD",
+  "CHEST",
+  "MERMAID",
+  "CANNON",
 ]; //Words to play
 let randomWord = words[Math.floor(Math.random() * words.length)]; //Get a random word
 let letters = []; //To store the letters
@@ -29,7 +38,7 @@ function startHangman() {
   <img class="img-heart-pixel" src="src/img/heart-pixel.svg" />
   <img class="img-heart-pixel" src="src/img/heart-pixel.svg" />
   <img class="img-heart-pixel" src="src/img/heart-pixel.svg" />
-  
+
   <h2>Guess the word</h2>
   <div id="wordContainer">
     <div id="letterContainer" class="letterContainer"></div>
@@ -164,12 +173,13 @@ function loseTheHangman() {
 
   let insertLoseHangman = document.getElementById("hangman-template").content;
   let copyLoseHangman = document.importNode(insertLoseHangman, true);
-
+  contentLoseHangmanArea.innerHTML = "";
   contentLoseHangmanArea.appendChild(copyLoseHangman);
 
   let image = document.getElementById("img");
   image.style.width = "100%";
-
+  againBtn = document.getElementById("playAgain");
+  againBtn.addEventListener("click", playAgain);
   scoreSlide();
 }
 
@@ -184,7 +194,7 @@ function winTheHangman() {
       </div>
     </div>
     </div>
-    //TODO Insert Scores
+    <p id="yourScore"></p>
     <h2 class="gameResult">YOU WIN!</h2>
   <button type="button" id="playAgain" class="playButton">Play again</button>
   <div id="contentArea" class="contentArea"></div>
@@ -201,11 +211,16 @@ function winTheHangman() {
 
   let insertWinHangman = document.getElementById("hangman-template").content;
   let copyWinHangman = document.importNode(insertWinHangman, true);
-
+  contentWinHangmanArea.innerHTML = "";
   contentWinHangmanArea.appendChild(copyWinHangman);
 
   let image = document.getElementById("img");
   image.style.width = "100%";
+
+  let yourScore = document.getElementById("yourScore");
+  let yourScoreHTML = yourScore.innerHTML;
+  yourScoreHTML = "Your score is " + seconds + "sec.";
+  console.log(yourScoreHTML);
 
   scoreSlide();
 }
@@ -268,7 +283,7 @@ function keyboardClick(event) {
 
 function lessLife() {
   --lifes;
-  let hearts = document.getElementById('count-lifes');
+  let hearts = document.getElementById("count-lifes");
   hearts.removeChild(hearts.children[0]);
   let failMsg = [
     "I'm going to fall!",
@@ -288,9 +303,6 @@ function lessLife() {
 function gameOver() {
   console.log("GAME OVER");
   loseTheHangman();
-
-  againBtn = document.getElementById("playAgain");
-  againBtn.addEventListener("click", playAgain);
 }
 let player5 = new Object();
 
@@ -299,6 +311,7 @@ function gameWin() {
   player5.name = username.value;
   player5.timeScore = seconds;
   winners.push(player5);
+  scores.push(player5);
   clearInterval(timeScoreboard);
   cleanScoreScreen();
   //showScore();
@@ -308,8 +321,9 @@ function gameWin() {
   againBtn.addEventListener("click", play);
 }
 
-function play() {
-  let indexTemplate = `<template id="index">
+function playAgain() {
+  location.reload();
+  let indexTemplate = `<template id=index>
   <!--Contenedor principal-->
   <div class="flex">
     <div id="mainScreen" class="mainScreen">
@@ -327,6 +341,7 @@ function play() {
   <div id="scoreScreen" class="scoreScreen">
     <h2>User Scores</h2>
   </div>
+  
 </template>`;
   let contentIndexArea = document.getElementsByTagName("main")[0]; //Get content area
   contentIndexArea.innerHTML = ""; //Erase content area's content
@@ -334,7 +349,7 @@ function play() {
 
   let insertIndex = document.getElementById("index").content;
   let copyIndex = document.importNode(insertIndex, true);
-
+  contentIndexArea.innerHTML = "";
   contentIndexArea.appendChild(copyIndex);
 
   playBtn = document.getElementById("playButton");
